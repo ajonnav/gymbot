@@ -23,7 +23,7 @@ def lambda_handler(event, context):
     print("Received event: " + str(event))
     if "Body" not in event or not event["Body"]:
         return twiliofy(INVALID_ACTION_MSG)
-    body = event["Body"]
+    body = event["Body"].lower()
 
     if "From" not in event or not event["From"]:
         return twiliofy(GENERAL_ERROR_MSG)
