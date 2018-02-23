@@ -113,9 +113,9 @@ def increase_tally(wks, now, sender):
     if wks.cell(todayRow, 1).value == '':
         wks.update_cell(todayRow, 1, str(now.strftime("%A %x")))
     senderColumn = get_sender_column(sender)
-    if sender < 0:
+    if senderColumn < 0:
         print("Could not recognize sender: " + sender)
-    else:
+    else if wks.cell(todayRow, senderColumn).value == '':
         wks.update_cell(todayRow, senderColumn, now.strftime("%H:%M"))
     return get_tallies(wks, now)
 
