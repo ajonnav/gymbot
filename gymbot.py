@@ -117,7 +117,7 @@ def increase_tally(wks, now, sender):
         print("Could not recognize sender: " + sender)
     else:
         wks.update_cell(todayRow, senderColumn, now.strftime("%H:%M"))
-    return get_tallies(wks)
+    return get_tallies(wks, now)
 
 
 def get_sender_column(sender):
